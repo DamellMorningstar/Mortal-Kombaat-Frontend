@@ -1,0 +1,40 @@
+.sidebar{
+
+    width: 220px;
+    background: #272727;
+    position: absolute;
+    height: 95vh;
+    padding: 0 30px;
+    left: -100%;
+    transition: all 0.3s;
+    
+  }
+  .sidebar.active{
+    left: 0;
+  }
+  ul {
+    padding: 0;
+
+  }
+  ul li{
+    list-style-type: none;
+    margin: 10px 0;
+  }
+
+  ul li a{
+    color: #14A76C;
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+    padding: 10px 15px;
+    border-radius: 6px;
+  }
+
+  ul li a:hover,
+  ul li a.active{
+    background: #FF652F
+  }
+  .logo{
+    width: 75px;
+    
+  }

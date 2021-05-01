@@ -1,24 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import Sidebar from "./Sidebar";
+import "./App.css";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import FighterContainer from "./FighterContainer";
+import Header from "./Header";
+import LoginForm from "./LoginForm";
+import NewFighterForm from "./NewFighterForm";
 
 function App() {
+  const [showNav, setShowNav] = useState(false);
+  const navClick = () => {
+    setShowNav(!showNav);
+  };
+  const addFighter = (newFighter) => {
+    const updatedFighters = [...fighters, newFighter]
+    setFighters(updatedFighters)
+}
+  const [fighters, setFighters] = useState([]);
+
+    useEffect(() => {
+      fetch("http://localhost:3000/fighters")
+        .then((r) => r.json())
+        .then((data) => setFighters(data));
+    }, []);
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <>
+        <Switch>
+
+          <Route path='/login'>
+        <LoginForm />
+          </Route>
+          <Route path='/'>
+          <Header navClick={navClick} />
+            <Sidebar showNav={showNav} />
+            <NewFighterForm addFighter={addFighter}/>
+            <FighterContainer fighters={fighters} />
+        </Route>
+        </Switch>
+
+      </>
+    </Router>
   );
 }
 
