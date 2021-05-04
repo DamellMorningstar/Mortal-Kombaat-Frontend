@@ -1,7 +1,9 @@
 import React from 'react'
 import './FighterCard.css'
+import NewFightForm from './NewFightForm'
 
-const FighterCard = ({id,username,weightclass,image,details,cellnum}) => {
+const FighterCard = ({ id, username, weightclass, image, fightstyle, cellnum,currentUser,fighters}) => {
+    
     return (
         <div className="card" data-tilt>
             <div className="grid">
@@ -10,9 +12,9 @@ const FighterCard = ({id,username,weightclass,image,details,cellnum}) => {
                     <div className="text">
                         <h3>{username}</h3>
                         <h4>{weightclass}</h4>
-                        <p>{details}</p>
+                        <p>{fightstyle}</p>
                         <p>{cellnum}</p>
-                        <button>Fight Me 🥋</button>
+                        <button >Fight Me 🥋</button>
                     </div>
                 </article>
             </div>

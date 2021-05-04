@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./NewFighterForm.css";
 
-const NewFighterForm = ({ addFighter }) => {
+const NewFighterForm = ({ addFighter}) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [detail, setDetail] = useState("");
@@ -14,7 +14,7 @@ const NewFighterForm = ({ addFighter }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("clicked");
-    fetch("http://localhost:3000/fighters", {
+    fetch("http://localhost:3000/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

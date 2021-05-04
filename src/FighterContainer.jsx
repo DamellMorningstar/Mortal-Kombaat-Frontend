@@ -1,21 +1,25 @@
 import React from 'react'
 import FighterCard from './FighterCard'
+import NewFightForm from './NewFightForm'
 
 
-const FighterContainer = ({ fighters }) => {
+const FighterContainer = ({ fighters, currentUser }) => {
     const allFighters = fighters.map(fighter => {
         return <FighterCard
+            fighters={fighters}
             key={fighter.id}
             id={fighter.id}
             username={fighter.username}
             weightclass={fighter.weightclass}
             cellnum={fighter.cellnum}
-            details={fighter.details}
+            fightstyle={fighter.fightstyle}
             image={fighter.image}
+            currentUser={currentUser}
         />
     })
     return (
         <div>
+       
             {allFighters}
         </div>
     )
