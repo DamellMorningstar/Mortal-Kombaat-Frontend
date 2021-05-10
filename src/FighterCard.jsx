@@ -6,30 +6,30 @@ import { Link, useHistory } from "react-router-dom";
 
 
 const FighterCard = ({ id, username, weightclass, image, fightstyle, cellnum,currentUser,fighters}) => {
-    const [fighterPage, setFighterPage] = useState(null)
     const [dontlook, setDontLook] = useState(true)
+    const [fighterData, setFighterData] = useState(null)
 
     const history = useHistory();
     
     const handleClick = () => {
-        console.log(username)
-
 
             fetch(`http://localhost:3000/users/${id}`)
             .then((response) => response.json())
-            .then(fighter => setFighterPage(fighter))
-
-            history.push('/fighter')
+            .then(fighter => console.log(fighter))
 
     }
     return (
         <div className="container" data-tilt>
             <div className="card">
                 <div className="box">
-                    <img src={image } onClick={handleClick} />
+                    <Link to={`/fighter/${id}`}>
+                        <img src={image} onClick={handleClick} />
+                    </Link>
+                    
+                    
                     <div className="content">
                         <h2>{username}</h2>
-                        {dontlook? null:  <FighterPage username={username} fighterPage={fighterPage} />}
+                        {dontlook? null:  <FighterPage fighterData={fighterData} username={username}  />}
                     </div>
                 </div>
           </div>

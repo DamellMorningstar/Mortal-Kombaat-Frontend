@@ -88,7 +88,7 @@ function App() {
           <NewFighterForm addFighter={addFighter}/>
             <FighterContainer currentUser={currentUser} fighters={fighters} />
           </Route>
-          <Route path='/fighter'>
+          <Route path='/fighter/:id'>
           <Header navClick={navClick} />
             <Sidebar showNav={showNav} />
             <FighterPage />
