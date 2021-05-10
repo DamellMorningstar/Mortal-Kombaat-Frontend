@@ -15,7 +15,6 @@ const LoginForm = ({setCurrentUser}) => {
   
     const handleChange = (e) => {
         setFormData({...formData, [e.target.name]: e.target.value});
-        console.log(e.target.value)
     };
       const handleSubmit = (e) => {
           e.preventDefault()
@@ -49,7 +48,9 @@ const LoginForm = ({setCurrentUser}) => {
             </div>
             <button className="signin-button">Login</button>
             <div className="link">
-                <a href="#">Forgot password?</a> or <a href="#">Sign Up</a>
+                <a href="#">Forgot password?</a> or   <Link to='/signup'>
+           signup
+            </Link>
             </div>
 
           

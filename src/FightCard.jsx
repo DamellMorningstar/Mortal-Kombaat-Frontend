@@ -31,7 +31,7 @@ const FightCard = ({id, fighter, fightee, wage, fightday,fighters,currentUser,up
             <h2>{wage}</h2>
             <h3>{fightday}</h3>
             <FighterCard
-                               username={fightee.username}
+                username={fightee.username}
                 fightstyle={fightee.fightstyle}
                 image={fightee.image}
                 weightclass={fightee.weightclass}

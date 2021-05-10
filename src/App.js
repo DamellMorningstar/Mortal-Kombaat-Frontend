@@ -8,10 +8,24 @@ import LoginForm from "./LoginForm";
 import NewFighterForm from "./NewFighterForm";
 import FighterCard from "./FighterCard";
 import FightContainer from "./FightContainer";
+import FighterPage from "./FighterPage";
+import SignUp from "./SignUp";
 
 function App() {
   const [showNav, setShowNav] = useState(false);
   const [currentUser, setCurrentUser] = useState(null)
+
+  /* auto-login */
+  
+  // useEffect(() => {
+  //   fetch(`http://localhost:3000/me`)
+  //     .then(r => r.json())
+  //   .then(user=> setCurrentUser(user))
+
+  // },[])
+
+
+   
   const navClick = () => {
     setShowNav(!showNav);
   };
@@ -61,6 +75,9 @@ function App() {
             <Sidebar showNav={showNav} />
           <FightContainer updateFight={updateFight} setFights={setFights} fighters={fighters} fights={fights} currentUser={currentUser} />
           </Route>
+          <Route path='/signup'>
+          <SignUp setCurrentUser={setCurrentUser} />
+          </Route>
 
           <Route path='/login'>
         <LoginForm setCurrentUser={setCurrentUser} />
@@ -71,6 +88,12 @@ function App() {
           <NewFighterForm addFighter={addFighter}/>
             <FighterContainer currentUser={currentUser} fighters={fighters} />
           </Route>
+          <Route path='/fighter'>
+          <Header navClick={navClick} />
+            <Sidebar showNav={showNav} />
+            <FighterPage />
+          </Route>
+          
           <Route path='/'>
           <Header navClick={navClick} />
             <Sidebar showNav={showNav} />
