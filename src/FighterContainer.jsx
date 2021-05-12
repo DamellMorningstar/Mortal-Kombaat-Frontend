@@ -18,7 +18,7 @@ const FighterContainer = ({ fighters, currentUser }) => {
         />
     })
     return (
-        <div>
+        <div className="allFighters" >
        
             {allFighters}
         </div>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const EditFightCard = ({id,fighters,currentUser,updateFight}) => {
+const EditFightCard = ({id,fighters,currentUser,updateFight,deleteFight}) => {
   const [wage, setWage] = useState(0);
   const [fightday, setFightDay] = useState("");
     const [fightee_id, setFightee_id] = useState("");
@@ -32,6 +32,15 @@ const EditFightCard = ({id,fighters,currentUser,updateFight}) => {
   const handleChange = (e) => {
     setFightee_id(e.target.value);
   };
+
+
+  function handleDelete () {
+    fetch(`http://localhost:3000/fights/${id}`, {
+        method: "DELETE",
+      })
+      deleteFight(id)
+}
+
 
   return (
     <div>
@@ -65,6 +74,8 @@ const EditFightCard = ({id,fighters,currentUser,updateFight}) => {
         </select>
 
         <button type="submit">Submit</button>
+
+        <button onClick={handleDelete }>🗑</button>
       </form>
     </div>
   );

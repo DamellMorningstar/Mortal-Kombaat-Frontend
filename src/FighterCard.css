@@ -1,4 +1,4 @@
-.card {
+/* .card {
     width: 20%;
     float: right;
     margin: 0px 0px 15px 15px;
@@ -14,4 +14,42 @@ img {
 .box{
     border-radius: 8px;
     border: 1px solid ;
+} */
+/* * {
+    margin: auto;
+    padding: 0;
+    box-sizing: border-box;
+  } */
+
+.allFighters{
+    display: flexbox;
+    align-items: center;
+  
+    margin-left: 30%;
+}
+.grid{
+    display: flexbox;
+    align-items: center;
+    
+}
+
+.grid > article{
+    background: #eee5e9;
+    border: none;
+    box-shadow: 2px 2px 6px 0px rgba(0,0,0,0.3);
+    border-radius:20px;
+    text-align: center;
+    width: 250px;
+    transition: transform .3s;
+}
+
+.grid > article:hover{
+    transform: translateY(5px);
+    box-shadow: 2px 2px 26px 0px rgba(0,0,0,0.3);
+}
+
+.grid > article img{
+    width:100%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
 }

@@ -31,7 +31,7 @@ const LoginForm = ({setCurrentUser}) => {
           .then(fighter =>
             setCurrentUser(fighter)
           )
-          history.push('/')
+          history.push('/home')
       }
 
     return (

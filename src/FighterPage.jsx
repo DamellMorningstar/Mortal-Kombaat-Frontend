@@ -21,22 +21,25 @@ const FighterPage = ({fighterData}) => {
 
     return (
         <div className="container" data-tilt>
-        <div className="card">
-            <div className="box">
+        <main className="grid">
+                <article>
                     {fighterPage ? <>
-                        <img src={fighterPage.image} alt={fighterPage.username}/>
-                        <h1>{fighterPage.username}</h1>
-                        <h2>{fighterPage.weightclass}</h2>
-                        <h3>{fighterPage.fightstyle}</h3>
-                        <p>{fighterPage.cellnum }</p>
-                    </> : ''}
+                        <img src={fighterPage.image} alt={fighterPage.username} />
+                <div className="text">
+                            <h2>{fighterPage.username}</h2>
+                            <h3>{fighterPage.weightclass}</h3>
+                            <h3>{fighterPage.fightstyle}</h3>
+                            <p>{fighterPage.cellnum}</p>
+                            
                   
-                <div className="content">
-                    {/* <h2>{fighterPage}</h2> */}
                 </div>
-            </div>
-      </div>
+                        
+                    </> : ''}
+
+            </article>
+        </main>
     </div>
+
     )
 }
 

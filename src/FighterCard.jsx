@@ -1,42 +1,46 @@
-import React, {useState,useEffect} from 'react'
-import './FighterCard.css'
-import NewFightForm from './NewFightForm'
-import FighterPage from './FighterPage'
+import React, { useState, useEffect } from "react";
+import "./FighterCard.css";
+import NewFightForm from "./NewFightForm";
+import FighterPage from "./FighterPage";
 import { Link, useHistory } from "react-router-dom";
 
+const FighterCard = ({
+  id,
+  username,
+  weightclass,
+  image,
+  fightstyle,
+  cellnum,
+  currentUser,
+  fighters,
+}) => {
+  const [dontlook, setDontLook] = useState(true);
+  const [fighterData, setFighterData] = useState(null);
 
-const FighterCard = ({ id, username, weightclass, image, fightstyle, cellnum,currentUser,fighters}) => {
-    const [dontlook, setDontLook] = useState(true)
-    const [fighterData, setFighterData] = useState(null)
+  const history = useHistory();
 
-    const history = useHistory();
-    
-    const handleClick = () => {
+  const handleClick = () => {
+    fetch(`http://localhost:3000/users/${id}`)
+      .then((response) => response.json())
+      .then((fighter) => console.log(fighter));
+  };
+  return (
+    <div className="container" data-tilt>
+      <main className="grid">
+        <article>
+          <img src={image} alt={username} />
 
-            fetch(`http://localhost:3000/users/${id}`)
-            .then((response) => response.json())
-            .then(fighter => console.log(fighter))
-
-    }
-    return (
-        <div className="container" data-tilt>
-            <div className="card">
-                <div className="box">
-                    <Link to={`/fighter/${id}`}>
-                        <img src={image} onClick={handleClick} />
-                    </Link>
-                    
-                    
-                    <div className="content">
-                        <h2>{username}</h2>
-                        {dontlook? null:  <FighterPage fighterData={fighterData} username={username}  />}
-                    </div>
-                </div>
+          <div className="text">
+            <h3>{username}</h3>
+            <Link to={`/fighter/${id}`}>
+              <button>More Details</button>
+            </Link>
           </div>
-        </div>
-        
-    )
-}
-<script type="text/javascript" src="vanilla-tilt.js"></script>
+        </article>
+      </main>
+    </div>
+  );
+};
+<script type="text/javascript" src="vanilla-tilt.js"></script>;
 
-export default FighterCard
+export default FighterCard;

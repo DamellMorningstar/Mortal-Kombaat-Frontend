@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { Link, useHistory } from "react-router-dom";
+
 import "./SignUp.css";
 
 const SignUp = ({setCurrentUser}) => {
@@ -10,7 +12,9 @@ const SignUp = ({setCurrentUser}) => {
     cellnum: "",
   });
     const [errors, setErrors] = useState([])
-    console.log(errors)
+  console.log(errors)
+  const history = useHistory();
+
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -43,7 +47,7 @@ const SignUp = ({setCurrentUser}) => {
           .catch(data => {
             setErrors(data.errors)
         });
-    // history.push('/')
+    history.push('/home')
   };
   return (
     <>

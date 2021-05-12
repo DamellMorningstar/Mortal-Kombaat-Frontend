@@ -9,7 +9,7 @@ const Sidebar = ({showNav}) => {
        <img src="https://i.pinimg.com/474x/6e/56/40/6e56407428ad13be01f0ff98d2374a2d.jpg" alt="bruce lee" className="logo"/>
         <ul>
           <li>
-          <Link to='/'>
+          <Link to='/home'>
           Home
          </Link>
           </li>
@@ -23,7 +23,9 @@ const Sidebar = ({showNav}) => {
         </ul>
         <ul>
           <li>
-            <a href="/">Schedule Fight</a>
+          <Link to='/schedulefight'>
+          Schedule Fight
+         </Link>
           </li>
         </ul>
         <ul>

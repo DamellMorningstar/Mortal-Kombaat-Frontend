@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import './NewFightForm.css'
 
 
 const NewFightForm = ({ fighters,currentUser,addNewFight}) => {
@@ -37,12 +38,16 @@ const NewFightForm = ({ fighters,currentUser,addNewFight}) => {
     
     return (
         <div>
-                  <form onSubmit={handleSubmit} className="new-fighter">
-        <label className="wage"></label>
+            <form onSubmit={handleSubmit} className="new-fighter">
+            <div className="logo"></div>
+          <div className="title">MortalKombaat</div>
+          <div className="sub-title">Beta</div>
+                <div className="fields">
+                <label className="wage"></label>
         <input
           type="number"
           className="wage"
-          placeholder="$$$"
+          placeholder="Enter Bet"
           value={wage}
           onChange={(e) => setWage(e.target.value)}
         />
@@ -62,10 +67,11 @@ const NewFightForm = ({ fighters,currentUser,addNewFight}) => {
                     <select
                     value={fightee_id}
                     onChange={handleChange}>
-                    {fighters.map((fighter) => <option value={fighter.id }key={fighter.id} id={fighter.id}>{fighter.username}</option>)  }
+                    {fighters.map((fighter) => <option className="opponent" value={fighter.id }key={fighter.id} id={fighter.id}>{fighter.username}</option>)  }
                     </select>
   
         <button type="submit">Submit</button>
+        </div>
       </form>
             
         </div>

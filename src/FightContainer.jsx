@@ -33,8 +33,7 @@ const FightContainer = ({fights, fighters,currentUser,setFights, updateFight}) =
     })
     console.log(fights)
     return (
-        <div>
-            <NewFightForm addNewFight={addNewFight} currentUser={currentUser} fighters={fighters}  />
+        <div >
             {allFights}
         </div>
     )

@@ -1,17 +1,31 @@
-.card {
-    width: 20%;
-    float: right;
-    margin: 0px 0px 15px 15px;
 
-}
-img {
-    width: 100%;
-    border-radius: 8px;
-    height:auto;
-    cursor: pointer;
+.grid{
+    margin:80px;
+    display: flexbox;
+    align-items: center;
+    
 }
 
-.box{
-    border-radius: 8px;
-    border: 1px solid ;
+.grid > article{
+    background: #eee5e9;
+    border: none;
+    box-shadow: 2px 2px 6px 0px rgba(0,0,0,0.3);
+    border-radius:20px;
+    text-align: center;
+    width: 250px;
+    transition: transform .3s;
+}
+
+.grid > article:hover{
+    transform: translateY(5px);
+    box-shadow: 2px 2px 26px 0px rgba(0,0,0,0.3);
+}
+
+.grid > article img{
+    width:100%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+button{
+    cursor:pointer;
 }

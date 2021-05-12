@@ -6,12 +6,6 @@ const FightCard = ({id, fighter, fightee, wage, fightday,fighters,currentUser,up
     console.log(id)
 
 
-    function handleDelete () {
-        fetch(`http://localhost:3000/fights/${id}`, {
-            method: "DELETE",
-          })
-          deleteFight(id)
-    }
 
 
 
@@ -37,9 +31,10 @@ const FightCard = ({id, fighter, fightee, wage, fightday,fighters,currentUser,up
                 weightclass={fightee.weightclass}
                 cellnum={fightee.cellnum}
             />
+            {currentUser ? <>
+                <EditFightCard deleteFight={deleteFight} updateFight={updateFight} fighters={fighters} currentUser={currentUser} id={id} />
+            </> : ' '}
 
-            <EditFightCard updateFight={updateFight} fighters={fighters} currentUser={currentUser} id={id} />
-            <button onClick={handleDelete }>🗑</button>
         </div>
     )
 }
