@@ -1,0 +1,18 @@
+.container{
+    display: block;
+    margin-left: 15%;
+}
+
+.fight-fighter{
+    display: inline-block;
+
+}
+
+
+.fight-fightee{
+    display: inline-block;
+}
+
+.details{
+    display: inline-block;
+}

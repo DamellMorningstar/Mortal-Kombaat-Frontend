@@ -11,7 +11,8 @@
   }
   
   .question-count {
-    margin-bottom: 20px;
+    margin-top: 250px;
+    margin-left:25%;
   }
   
   .question-count span {
@@ -19,7 +20,9 @@
   }
   
   .question-text {
-    margin-bottom: 12px;
+    margin-top:20px;
+    margin-bottom:10px;
+    margin-left:25%;
   }
   
   .timer-text {
@@ -41,17 +44,22 @@
   }
   
   .quiz-btn {
-    width: 100%;
+    width: 40%;
+    margin-left:25%;
+    margin-bottom: 10px;
     font-size: 16px;
     color: #ffffff;
     background-color: #252d4a;
     border-radius: 15px;
     display: flex;
-    padding: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     justify-content: flex-start;
     align-items: center;
-    border: 5px solid #234668;
+    opacity: 30%;
     cursor: pointer;
+    transition: all 0.3s ease-out;
+    background: #c1c3c1; /* fallback color for old browsers */background: rgba(18, 153, 207, 0.944);
   }
   
   .correct {
@@ -73,3 +81,10 @@
   button svg {
     margin-right: 5px;
   }
+/* html{
+  background: url("https://i.pinimg.com/564x/f0/b6/d1/f0b6d1720b95b1f9c0ba6724a34f06a9.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+ 
+} */

@@ -82,15 +82,14 @@ function App() {
               fights={fights}
               currentUser={currentUser}
             />
+             <HomePage /> 
           </Route>
           <Route path="/signup">
             <SignUp setCurrentUser={setCurrentUser} />
           </Route>
 
           <Route path="/home">
-            {/* <video id="videoBG" poster="./video-screenshit.png" autoplay muted loop>
-              <source src="./kungfu"
-            </video> */}
+        
            
             <Header navClick={navClick} />
             <Sidebar showNav={showNav} />
@@ -108,6 +107,7 @@ function App() {
           <Route path="/fighters">
             <Header navClick={navClick} />
             <Sidebar showNav={showNav} />
+            <HomePage /> 
             {/* <NewFighterForm addFighter={addFighter} /> */}
             <FighterContainer currentUser={currentUser} fighters={fighters} />
           </Route>
@@ -115,6 +115,7 @@ function App() {
             <Header navClick={navClick} />
             <Sidebar showNav={showNav} />
             <FighterPage />
+            <HomePage /> 
           </Route>
 
           <Route path="/">
