@@ -48,23 +48,19 @@ const Quiz = () => {
   const history = useHistory();
 
   const handleButtonClick = (isCorrect) => {
-
     if (!isCorrect === true) {
-      window.location.href = "https://www.youtube.com/watch?v=ewGaAZcQ3fU"
+      window.location.href = "https://www.youtube.com/watch?v=ewGaAZcQ3fU";
     }
     const nextQuestion = currentQuestion + 1;
     if (nextQuestion < questions.length) {
-      setCurrentQuestion(nextQuestion)
+      setCurrentQuestion(nextQuestion);
+    } else {
+      history.push("/login");
     }
-    else {
-      history.push('/login')
-    }
-    
-  }
+  };
 
-  const [currentQuestion, setCurrentQuestion] = useState(0)
-  const [showScore, setShowScore] = useState(false)
-  
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [showScore, setShowScore] = useState(false);
 
   return (
     <div className="quiz">
@@ -81,12 +77,17 @@ const Quiz = () => {
               <span>Question 1</span>/{questions.length}
             </div>
             <div className="question-text">
-           {questions[currentQuestion].questionText}
+              {questions[currentQuestion].questionText}
             </div>
           </div>
           <div className="answer-section">
             {questions[currentQuestion].answerOptions.map((answerOption) => (
-              <button className='quiz-btn' onClick={() => handleButtonClick(answerOption.isCorrect)}>{answerOption.answerText}</button>
+              <button
+                className="quiz-btn"
+                onClick={() => handleButtonClick(answerOption.isCorrect)}
+              >
+                {answerOption.answerText}
+              </button>
             ))}
           </div>
         </>

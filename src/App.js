@@ -62,11 +62,10 @@ function App() {
     setFights(updatedFightArray);
   }
 
-
   const addNewFight = (newFight) => {
-    const updatedFights = [...fights, newFight]
-    setFights(updatedFights)
-}
+    const updatedFights = [...fights, newFight];
+    setFights(updatedFights);
+  };
 
   return (
     <Router>
@@ -82,32 +81,35 @@ function App() {
               fights={fights}
               currentUser={currentUser}
             />
-             <HomePage /> 
+            {/* <HomePage />  */}
           </Route>
           <Route path="/signup">
-            <SignUp setCurrentUser={setCurrentUser} />
+            <SignUp addFighter={addFighter} setCurrentUser={setCurrentUser} />
           </Route>
 
           <Route path="/home">
-        
-           
             <Header navClick={navClick} />
             <Sidebar showNav={showNav} />
-             <HomePage /> 
+            <HomePage />
           </Route>
           <Route path="/schedulefight">
-          <Header navClick={navClick} />
+            <Header navClick={navClick} />
             <Sidebar showNav={showNav} />
-          <NewFightForm addNewFight={addNewFight} currentUser={currentUser} fighters={fighters}  />
+            <NewFightForm
+              addNewFight={addNewFight}
+              currentUser={currentUser}
+              fighters={fighters}
+            />
+            <HomePage />
           </Route>
 
           <Route path="/login">
-]            <LoginForm setCurrentUser={setCurrentUser} />
+            ] <LoginForm setCurrentUser={setCurrentUser} />
           </Route>
           <Route path="/fighters">
             <Header navClick={navClick} />
             <Sidebar showNav={showNav} />
-            <HomePage /> 
+            {/* <HomePage />  */}
             {/* <NewFighterForm addFighter={addFighter} /> */}
             <FighterContainer currentUser={currentUser} fighters={fighters} />
           </Route>
@@ -115,7 +117,7 @@ function App() {
             <Header navClick={navClick} />
             <Sidebar showNav={showNav} />
             <FighterPage />
-            <HomePage /> 
+            <HomePage />
           </Route>
 
           <Route path="/">

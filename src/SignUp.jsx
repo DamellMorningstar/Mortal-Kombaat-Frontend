@@ -3,7 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 
 import "./SignUp.css";
 
-const SignUp = ({setCurrentUser}) => {
+const SignUp = ({ setCurrentUser, addFighter }) => {
   const [formData, setFormData] = useState({
     username: "",
     password: "",
@@ -11,10 +11,9 @@ const SignUp = ({setCurrentUser}) => {
     weightclass: "",
     cellnum: "",
   });
-    const [errors, setErrors] = useState([])
-  console.log(errors)
+  const [errors, setErrors] = useState([]);
+  console.log(errors);
   const history = useHistory();
-
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -23,31 +22,32 @@ const SignUp = ({setCurrentUser}) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("click");
-      fetch(`http://localhost:3000/signup`, {
-          method: "POST",
-          headers: {
-              "Content-Type": "application/json",
-              Accept: "application/json",
-          },
-          body: JSON.stringify(formData),
+    fetch(`http://localhost:3000/signup`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          return response.json.then((data) => {
+            throw data;
+          });
+        }
       })
-          .then((response) => {
-              if (response.ok) {
-                  return response.json()
-              } else {
-                  return response.json.then(data => {
-                      throw data
-                  })
-              }
-          })
-          .then((data) => {
-              setCurrentUser(data)
-          })
-            
-          .catch(data => {
-            setErrors(data.errors)
-        });
-    history.push('/home')
+      .then((data) => {
+        addFighter(data);
+        setCurrentUser(data);
+      })
+
+      .catch((data) => {
+        setErrors(data.errors);
+      });
+    history.push("/home");
   };
   return (
     <>
@@ -75,10 +75,9 @@ const SignUp = ({setCurrentUser}) => {
                 type="text"
                 className="pass-input"
                 placeholder="password"
-                          />
-                          
-                      </div>
-                      <div className="image">
+              />
+            </div>
+            <div className="image">
               <input
                 name="image"
                 onChange={handleChange}
@@ -96,10 +95,9 @@ const SignUp = ({setCurrentUser}) => {
                 type="text"
                 className="pass-input"
                 placeholder="Weight-class"
-                          />
-                          
-                      </div>
-                      <div className="username">
+              />
+            </div>
+            <div className="username">
               <input
                 name="fightstyle"
                 onChange={handleChange}
@@ -117,16 +115,15 @@ const SignUp = ({setCurrentUser}) => {
                 type="text"
                 className="pass-input"
                 placeholder="cellnum"
-                          />
-                          
+              />
             </div>
-                  </div>
+          </div>
 
-                  {errors.map(error => {
-                      <p key={error} style={{ color: "red" }}>
-                          {error}
-                      </p>
-                  })}
+          {errors.map((error) => {
+            <p key={error} style={{ color: "red" }}>
+              {error}
+            </p>;
+          })}
           <button className="signup-button">Sign-Up</button>
         </div>
       </form>

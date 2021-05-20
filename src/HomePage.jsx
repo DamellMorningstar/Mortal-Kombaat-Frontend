@@ -1,6 +1,6 @@
 import React from "react";
-import KungFu from './kungfu-vid.mp4'
-import "./HomePage.css"
+import KungFu from "./kungfu-vid.mp4";
+import "./HomePage.css";
 
 const HomePage = () => {
   return (

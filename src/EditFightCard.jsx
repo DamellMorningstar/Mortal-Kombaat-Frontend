@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 
-const EditFightCard = ({id,fighters,currentUser,updateFight,deleteFight}) => {
+const EditFightCard = ({
+  id,
+  fighters,
+  currentUser,
+  updateFight,
+  deleteFight,
+}) => {
   const [wage, setWage] = useState(0);
   const [fightday, setFightDay] = useState("");
-    const [fightee_id, setFightee_id] = useState("");
+  const [fightee_id, setFightee_id] = useState("");
 
-  
-    
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("clicked");
@@ -33,14 +37,12 @@ const EditFightCard = ({id,fighters,currentUser,updateFight,deleteFight}) => {
     setFightee_id(e.target.value);
   };
 
-
-  function handleDelete () {
+  function handleDelete() {
     fetch(`http://localhost:3000/fights/${id}`, {
-        method: "DELETE",
-      })
-      deleteFight(id)
-}
-
+      method: "DELETE",
+    });
+    deleteFight(id);
+  }
 
   return (
     <div>
@@ -66,16 +68,16 @@ const EditFightCard = ({id,fighters,currentUser,updateFight,deleteFight}) => {
 
         <label>Select Opponent </label>
         <select value={fightee_id} onChange={handleChange}>
-          {fighters.map((fighter) => (
-            <option value={fighter.id} key={fighter.id} id={fighter.id}>
-              {fighter.username}
+          {fighters.map((fightee) => (
+            <option value={fightee.id} key={fightee.id} id={fightee.id}>
+              {fightee.username}
             </option>
           ))}
         </select>
 
         <button type="submit">Submit</button>
 
-        <button onClick={handleDelete }>🗑</button>
+        <button onClick={handleDelete}>🗑</button>
       </form>
     </div>
   );

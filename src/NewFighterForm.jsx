@@ -1,15 +1,13 @@
 import React, { useState } from "react";
 import "./NewFighterForm.css";
 
-const NewFighterForm = ({ addFighter}) => {
+const NewFighterForm = ({ addFighter }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [detail, setDetail] = useState("");
   const [image, setImage] = useState("");
   const [cellnum, setCellnum] = useState("");
   const [weightclass, setWeightclass] = useState("");
-
-
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -25,7 +23,7 @@ const NewFighterForm = ({ addFighter}) => {
         detail: detail,
         image: image,
         cellnum: cellnum,
-        weightclass: weightclass
+        weightclass: weightclass,
       }),
     })
       .then((r) => r.json())
